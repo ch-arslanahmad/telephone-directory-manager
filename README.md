@@ -1,6 +1,6 @@
 # telephone-directory-manager
 
-Telephone directory will have 2 variables:
+A C++ Telephone directory will have 2 variables:
 - name
 - phone-number
 
