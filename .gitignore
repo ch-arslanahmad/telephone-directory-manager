@@ -1,0 +1,14 @@
+# Ignore .vscode folder
+.vscode/
+
+
+# Ignore extension-less files (keep directories)
+
+## 1. ignore all files
+*
+
+# 2. but keep files with extensions
+!*.*
+
+# 3. keep directories
+!*/
