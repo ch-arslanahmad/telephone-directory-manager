@@ -7,6 +7,7 @@ A C++ Telephone directory will have 2 variables:
 It would have CRUD operations using STL classes:
 - `map` - easy
 - `set` - moderate
+- `deque`
 
 It also includes searching of records via area code as well.
 
@@ -18,3 +19,4 @@ This is for practice purposes to get a deeper understanding of
 - using CRUD operations
 - understanding STL `map`
 - understanding STL `set` and using it with a value-pair like data-set.
+- understanding STL `deque`
