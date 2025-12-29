@@ -35,12 +35,23 @@ void displayRecords(const map<string, string> &TD) {
   cout << "End of Records.\n" << endl;
 }
 
+// find utility-function
+auto findRecord(string name, map<string, string> &TD) {
+  auto it = TD.find(name);
+  return it;
+}
+
 // #2 - Add Record
 void addRecord(map<string, string> &TD) {
   string name, no;
 
   cout << "\nEnter new Name: ";
   getline(cin, name);
+
+  if (findRecord(name, TD) != TD.end()) {
+    cout << "Already Exists.";
+    return; // exist
+  }
 
   cout << "\nEnter new No: ";
   getline(cin, no);
@@ -61,8 +72,7 @@ void updateRecord(map<string, string> &TD) {
   cout << "\nEnter existing Name: ";
   getline(cin, name);
 
-  auto it = TD.find(name); // store iterator
-
+  auto it = findRecord(name, TD); //  return iterator
   if (it != TD.end()) {
     cout << "\nEnter new No: ";
     getline(cin, no);
@@ -92,8 +102,8 @@ void searchRecord(map<string, string> &TD) {
 
   cout << "\nEnter new Name: ";
   getline(cin, name);
-  auto it = TD.find(name);
 
+  auto it = findRecord(name, TD);
   if (it != TD.end()) {
     cout << "Record Exists." << endl;
     cout << "Name: " << it->first;
@@ -113,6 +123,8 @@ void searchByLocalNumber(map<string, string> &TD) {
 
   bool found = false;
   for (const auto &entry : TD) {
+    // .substr(pos, size_t ) - this gives you string from start to size_t.
+    // e.g.,["042-25796115".substr(0, 3) = "042"]
     if (entry.second.substr(0, localCode.length()) == localCode) {
       cout << "Name: " << entry.first << ", Phone Number: " << entry.second
            << endl;
